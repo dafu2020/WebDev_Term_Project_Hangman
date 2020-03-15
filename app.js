@@ -8,9 +8,10 @@ let hintList = ["has a bio degree from UBC", "is youngest in program(?)", "has b
 // Decide which index/word onload  --> we gonna need to make it happen after a game is done too somehow
 let wordIndex = Math.floor(Math.random() * wordList.length);
 let secretWord = wordList[wordIndex]; // Select a random word from the wordList
-let hint = hintList[wordIndex]
+let hint = hintList[wordIndex];
 
-let lettersLeft = secretWord.length
+let lettersLeft = secretWord.length;
+let guessList = [];
 
 // display _ for each letter of selected word
 let blankWord = [];
@@ -27,33 +28,43 @@ console.log(blankWord.join(" "));  // this is what should get written into the H
 function lifeReducer() {
     lives -= 1;
     if (lives == 0){
-        alert("Game over")
+        alert("Game over");
     }
 }
 
 function checkWonGame() {
     lettersLeft -= 1;
     if (lettersLeft == 0){
-        alert("You win")
+        alert("You win");
     }
 }
 
 function guess(letter){
     counter = 0  // This is checking to see if there are any matches
-    for (i = 0; i < secretWord.length; i++){
-        if (secretWord[i] == letter){
-            blankWord[i] = letter;
-            counter += 1
-            checkWonGame()
+
+    if (guessList.includes(letter)){
+        alert("Already guessed.")
+
+    }else{
+        guessList.push(letter);
+        showGuesses();
+
+        for (i = 0; i < secretWord.length; i++){
+            if (secretWord[i] == letter){
+                blankWord[i] = letter;
+                counter += 1;
+                checkWonGame();
+            }
         }
-    }
-    if (counter == 0){  // If no matches, reduce score by 1
-        lifeReducer()
+        if (counter == 0){  // If no matches, reduce score by 1
+            lifeReducer();
+        }
     }
     console.log(counter)
     showLive();
     showLetterLeft();
     showWord(); 
+    console.log(guessList)
 }
 
 // document.getElementById("keyA").onclick = guess("a");  // how do u make this not happen automatically lol
@@ -83,3 +94,9 @@ function showLetterLeft(){
     document.getElementById('letterLeft').innerHTML = 'Letters Remaining: '+ lettersLeft;
 }
 showLetterLeft();
+
+// show guesses
+function showGuesses(){
+    guessList.sort()
+    document.getElementById('guesses').innerHTML = 'Guessed Letters: '+ guessList.join(" ");
+}
