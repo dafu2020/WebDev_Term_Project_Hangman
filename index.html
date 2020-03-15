@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HANGMAN</title>
@@ -8,10 +9,9 @@
 <body>
     <div class = 'topDiv'>
         <h1 id='gameTitle'>Hangman</h1>
-        <h3 class="message">Gusse the correct word before your lives ran out!</h3>
+        <h3 class="message">Guess the correct word before your lives run out!</h3>
         <h3 class="messgae">Click 'RESET' button to reset the game</h3>
     </div> 
-    <!-- test commit -->
 
     
     <div class="centerDiv">
@@ -24,7 +24,7 @@
             <P id="hintText"> hint will display here</P>
         </div>
         <div class= "value">
-            <p id="live">Live Remains:</p>
+            <p id="live">Lives Remaining:</p>
             <p id="score">Score:</p>
         </div>
     </div>
@@ -32,41 +32,43 @@
     <div class="bottomDiv">
 
         <div class="keyboard">
-            <button id="keyA">A</button>
-            <button id="keyB">B</button>
-            <button id="keyC">C</button>
-            <button id="keyD">D</button>
-            <button id="keyE">E</button>
-            <button id="keyF">F</button>
-            <button id="keyG">G</button>
-            <button id="keyH">H</button>
-            <button id="keyI">I</button>
-            <button id="keyJ">J</button>
-            <button id="keyK">K</button>
-            <button id="keyL">L</button>
-            <button id="keyM">M</button>
-            <button id="keyN">N</button>
-            <button id="keyO">O</button>
-            <button id="keyP">P</button>
-            <button id="keyQ">Q</button>
-            <button id="keyR">R</button>
-            <button id="keyS">S</button>
-            <button id="keyT">T</button>
-            <button id="keyU">U</button>
-            <button id="keyV">V</button>
-            <button id="keyW">W</button>
-            <button id="keyX">X</button>
-            <button id="keyY">Y</button>
-            <button id="keyZ">Z</button>
+            <button id="keyA" onclick="guess('a')">A</button>
+            <button id="keyB" onclick="guess('b')">B</button>
+            <button id="keyC" onclick="guess('c')">C</button>
+            <button id="keyD" onclick="guess('d')">D</button>
+            <button id="keyE" onclick="guess('e')">E</button>
+            <button id="keyF" onclick="guess('f')">F</button>
+            <button id="keyG" onclick="guess('g')">G</button>
+            <button id="keyH" onclick="guess('h')">H</button>
+            <button id="keyI" onclick="guess('i')">I</button>
+            <button id="keyJ" onclick="guess('j')">J</button>
+            <button id="keyK" onclick="guess('k')">K</button>
+            <button id="keyL" onclick="guess('l')">L</button>
+            <button id="keyM" onclick="guess('m')">M</button>
+            <button id="keyN" onclick="guess('n')">N</button>
+            <button id="keyO" onclick="guess('o')">O</button>
+            <button id="keyP" onclick="guess('p')">P</button>
+            <button id="keyQ" onclick="guess('q')">Q</button>
+            <button id="keyR" onclick="guess('r')">R</button>
+            <button id="keyS" onclick="guess('s')">S</button>
+            <button id="keyT" onclick="guess('t')">T</button>
+            <button id="keyU" onclick="guess('u')">U</button>
+            <button id="keyV" onclick="guess('v')">V</button>
+            <button id="keyW" onclick="guess('w')">W</button>
+            <button id="keyX" onclick="guess('x')">X</button>
+            <button id="keyY" onclick="guess('y')">Y</button>
+            <button id="keyZ" onclick="guess('z')">Z</button>
 
         </div>
 
         <div>
-            <button id="reSet">RESET</button>
+            <button id="reset">RESET</button>
         </div>
 
 
-    </div>  
+    </div> 
+    
+    <script src="app.js"></script>
 
 </body>
 </html>
