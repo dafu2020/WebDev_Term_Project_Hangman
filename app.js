@@ -51,9 +51,9 @@ function guess(letter){
         lifeReducer()
     }
     console.log(counter)
-    console.log(lives)
+    showLive();
     console.log(lettersLeft)
-    showWord() 
+    showWord(); 
 }
 
 // document.getElementById("keyA").onclick = guess("a");  // how do u make this not happen automatically lol
