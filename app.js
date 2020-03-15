@@ -53,10 +53,21 @@ function guess(letter){
     console.log(counter)
     console.log(lives)
     console.log(lettersLeft)
-    console.log(blankWord.join(" ")) 
+    showWord() 
 }
 
 // document.getElementById("keyA").onclick = guess("a");  // how do u make this not happen automatically lol
 console.log(lives)
 console.log(secretWord)
 console.log(blankWord.join(" "))  // this is what should get written into the HTML 
+
+// show hint
+function showHint(){
+    document.getElementById('hintText').innerHTML = hint;
+}
+
+// show word
+function showWord(){
+    document.getElementById('wordDisplay').innerHTML = blankWord.join(" ");
+}
+showWord();
