@@ -52,7 +52,7 @@ function guess(letter){
     }
     console.log(counter)
     showLive();
-    console.log(lettersLeft)
+    showLetterLeft();
     showWord(); 
 }
 
@@ -71,3 +71,15 @@ function showWord(){
     document.getElementById('wordDisplay').innerHTML = blankWord.join(" ");
 }
 showWord();
+
+// show live
+function showLive(){
+    document.getElementById('live').innerHTML = 'Lives Remaining: '+ lives;
+}
+showLive();
+
+// show letter left
+function showLetterLeft(){
+    document.getElementById('letterLeft').innerHTML = 'Letters Remaining: '+ lettersLeft;
+}
+showLetterLeft();
