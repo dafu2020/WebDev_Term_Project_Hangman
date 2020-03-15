@@ -53,6 +53,7 @@ function guess(letter){
     console.log(counter)
     console.log(lives)
     console.log(lettersLeft)
+    console.log(blankWord.join(" ")) 
 }
 
 // document.getElementById("keyA").onclick = guess("a");  // how do u make this not happen automatically lol
