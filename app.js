@@ -2,8 +2,10 @@
 let lives = 10;
 
 // List of words and hints --> the hint and word have to be in same index
-let wordList = ["cindy", "hudson", "arjun"];
-let hintList = ["has a bio degree from UBC", "is youngest in program(?)", "has bio degree from uvic"];
+let wordList = ["cindy", "hudson", "arjun", 'mrna', 'jumpsuit','Ygritte', 'khaleesi', 'redwedding'];
+let hintList = ["has a bio degree from UBC", "is youngest in program(?)", "has bio degree from uvic", 'a coding RNA that functions as the template for protein synthesis',
+                'the epic outfit Phoebe Waller-Bridge pulled off in Fleabag', '\'You know nothing Jon Snow.\'', 'a Dothraki word referring to the wife of the khal, or warlord of a khalasar, a Dothraki clan or tribe.',
+                'a massacre that takes place at the wedding that was intended to make peace between the Starks and the Freys'];
 
 // Decide which index/word onload  --> we gonna need to make it happen after a game is done too somehow
 let wordIndex = Math.floor(Math.random() * wordList.length);
