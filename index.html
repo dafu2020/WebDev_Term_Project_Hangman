@@ -1,51 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HANGMAN</title>
+  <title>HangMan Game</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  
 </head>
-<body id='body'>
-    <div class = 'topDiv'>
-        <h1 id='gameTitle'>Hangman</h1>
-        <h3 class="message">Guess the correct word before your lives run out!</h3>
-        <h3 class="messgae">Click 'RESET' button to reset the game</h3>
-    </div> 
+<body id="body">
 
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>HangMan</h1>      
+    <p>Guess the correct word before your lives run out!</p>
+    <p>Click 'RESET' button to reset the game</p>
+    <p>*Photo should be in some sort of wrapper here*</p>
+  </div>
+</div>
+  
+<div class= "bg-3 Left space">   
+  
+  <p id="wordDisplay" class="rainbow text-center text-uppercase">Word will display here</p>
+
+  <div class="hint">
+      <button id = "hintButton" onclick="showHint()"> HINT display</button>
+      <P id="hintText"> hint will display here</P>
+  </div>
+  <div class= "value">
+    <p id="live">Lives Remaining: </p>
+    <p id='letterLeft'>Letters Left: </p>
+    <p id="score">Score: </p>
+    <p id="guesses">Guessed Letters: </p>
+  </div>
+</div> 
+<div class="bg-3 text-center">
+
+    <div class="keyboard" id='keyboard'>
     
-    <div class="centerDiv">
-        <div id="hangmanPicture">Picture will display here</div>
-
-       <p id="wordDisplay">Word will display here</p>
-
-        <div class="hint">
-            <button id = "hintButton" onclick="showHint()"> HINT display</button>
-            <P id="hintText"> hint will display here</P>
-        </div>
-        <div class= "value">
-            <p id="live">Lives Remaining: </p>
-            <p id='letterLeft'>Letters Left: </p>
-            <p id="score">Score: </p>
-            <p id="guesses">Guessed Letters: </p>
-        </div>
-        
     </div>
 
-    <div class="bottomDiv">
+    <div>
+        <button id="reset" type='button' class="btn-primary">RESET</button>
+    </div>
 
-        <div class="keyboard" id='keyboard'>
-        
+  <footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <h6 class="text-uppercase font-weight-bold">Group</h6>
+                <p>Hudson McManus, Arjun Dhaliwal, Cindy Leu</p>
+                <p>
+            </div>
         </div>
-
-        <div>
-            <button id="reset">RESET</button>
-        </div>
-
-
-    </div> 
-    
-    <script src="app.js"></script>
-
+        <div class="footer-copyright text-center">The Team Team√</div>
+</footer>
 </body>
+<script type="text/javascript" src="app.js"></script>
 </html>

@@ -29,7 +29,8 @@ console.log(blankWord);
 console.log(blankWord.join(" "));  // this is what should get written into the HTML 
 
 // Defining the keyboard wrapper
-let keyboard = document.getElementById('keyboard');
+const keyboard = document.getElementById('keyboard');
+console.log(keyboard)
 
 // Creating buttons
 createButtons()
@@ -84,7 +85,7 @@ function createButtons() {
     // Create QWERTY array
     let qwerty = "qwertyuiopasdfghjklzxcvbnm".split('');
 
-    console.log(keyboard)
+    
     for (let i = 0; i < qwerty.length; i++) {
         if (i == 10 || i == 19) {
             let linebreak = document.createElement("br");
@@ -94,14 +95,16 @@ function createButtons() {
         let btn = document.createElement("button")
         // Assign button's text to it's cooresponding letter
         btn.innerHTML = qwerty[i];
-        btn.className = 'btn';
+        btn.className = 'btn btn-md';
         // Add on click event to each button
         btn.addEventListener('click', guess);
         btn.addEventListener('click', function (btn) {
                 element = btn.target
-                element.className = 'btn active'
+                element.className = 'btn active btn-md'
         })
         // Append it to the keyboard wrapper
+        console.log(keyboard)
+        console.log(btn)
         keyboard.appendChild(btn);
     }
 
