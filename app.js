@@ -1,7 +1,7 @@
 
 
 // JAVASCRIPT FILE //
-let lives = 10;
+let lives = 7;
 
 // List of words and hints --> the hint and word have to be in same index
 let wordList = ["cindy", "hudson", "arjun", 'mrna', 'jumpsuit', 'Ygritte', 'khaleesi', 'redwedding'];
@@ -38,9 +38,17 @@ createButtons()
 
 function lifeReducer() {
     lives -= 1;
+    picChange();
     if (lives == 0) {
         alert("Game over");
     }
+}
+
+// change picture
+function picChange(){
+    let image = document.getElementById('hangmanImg');
+    let imageList = ['src/pic0.png','src/pic1.png', 'src/pic2.png', 'src/pic3.png', 'src/pic4.png', 'src/pic5.png', 'src/pic6.png', 'src/pic7.png']
+    image.src = imageList[7-lives];
 }
 
 function checkWonGame() {
