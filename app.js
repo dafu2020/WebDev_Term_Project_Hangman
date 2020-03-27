@@ -167,3 +167,10 @@ function showGuesses() {
 function showScore(){
     document.getElementById('score').innerHTML = 'Score Letters: ' + gameScore;
 }
+
+// end game
+let gameOverbtn = document.getElementById('endGame');
+gameOverbtn.addEventListener('click', function(e){
+    let person = prompt("Please enter your name", "Ariana Grande");
+        alert(person + ', your score is '+ gameScore);
+})
