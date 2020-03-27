@@ -2,9 +2,12 @@
 
 // JAVASCRIPT FILE //
 let lives = 7;
+let gameScore = 0;
+
 
 // List of words and hints --> the hint and word have to be in same index
-let wordList = ["cindy", "hudson", "arjun", 'mrna', 'jumpsuit', 'Ygritte', 'khaleesi', 'redwedding'];
+// expand it to 10 words!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let wordList = ["cindy", "hudson", "arjun", 'mrna', 'jumpsuit', 'ygritte', 'khaleesi', 'redwedding'];
 let hintList = ["has a bio degree from UBC", "is youngest in program(?)", "has bio degree from uvic", 'a coding RNA that functions as the template for protein synthesis',
     'the epic outfit Phoebe Waller-Bridge pulled off in Fleabag', '\'You know nothing Jon Snow.\'', 'a Dothraki word referring to the wife of the khal, or warlord of a khalasar, a Dothraki clan or tribe.',
     'a massacre that takes place at the wedding that was intended to make peace between the Starks and the Freys'];
@@ -40,7 +43,8 @@ function lifeReducer() {
     lives -= 1;
     picChange();
     if (lives == 0) {
-        alert("Game over");
+        let person = prompt("Please enter your name", "Ariana Grande");
+        alert(person+ " you lost. Game over, your score is "+ gameScore);
     }
 }
 
@@ -54,7 +58,8 @@ function picChange(){
 function checkWonGame() {
     lettersLeft -= 1;
     if (lettersLeft == 0) {
-        alert("You win");
+        let person = prompt("Please enter your name", "Ariana Grande");
+        alert(person + ', your score is '+ gameScore);
     }
 }
 
@@ -74,11 +79,14 @@ function guess(btn) {
             if (secretWord[i] == letter) {
                 blankWord[i] = letter;
                 counter += 1;
+                gameScore += counter;
                 checkWonGame();
             }
+            
         }
         if (counter == 0) {  // If no matches, reduce score by 1
             lifeReducer();
+            gameScore -= 1;
         }
     }
     console.log(counter)
@@ -86,6 +94,7 @@ function guess(btn) {
     showLetterLeft();
     showWord();
     console.log(guessList)
+    showScore();
 }
 
 
@@ -152,4 +161,9 @@ showLetterLeft();
 function showGuesses() {
     guessList.sort()
     document.getElementById('guesses').innerHTML = 'Guessed Letters: ' + guessList.join(" ");
+}
+
+// show score
+function showScore(){
+    document.getElementById('score').innerHTML = 'Score Letters: ' + gameScore;
 }
