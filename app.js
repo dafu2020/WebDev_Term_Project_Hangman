@@ -174,3 +174,9 @@ gameOverbtn.addEventListener('click', function(e){
     let person = prompt("Please enter your name", "Ariana Grande");
         alert(person + ', your score is '+ gameScore);
 })
+
+// reset game
+let resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', function(e){
+    location.reload();
+})
