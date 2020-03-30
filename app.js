@@ -33,7 +33,6 @@ console.log(blankWord.join(" "));  // this is what should get written into the H
 
 // Defining the keyboard wrapper
 const keyboard = document.getElementById('keyboard');
-console.log(keyboard)
 
 // Creating buttons
 createButtons()
@@ -120,8 +119,6 @@ function createButtons() {
                 element.className = 'btn active btn-md'
         })
         // Append it to the keyboard wrapper
-        console.log(keyboard)
-        console.log(btn)
         keyboard.appendChild(btn);
     }
 
