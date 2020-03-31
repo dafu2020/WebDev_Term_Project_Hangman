@@ -7,10 +7,9 @@ let gameScore = 0;
 
 // List of words and hints --> the hint and word have to be in same index
 // expand it to 10 words!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let wordList = ["cindy", "hudson", "arjun", 'mrna', 'jumpsuit', 'ygritte', 'khaleesi', 'redwedding'];
-let hintList = ["has a bio degree from UBC", "is youngest in program(?)", "has bio degree from uvic", 'a coding RNA that functions as the template for protein synthesis',
-    'the epic outfit Phoebe Waller-Bridge pulled off in Fleabag', '\'You know nothing Jon Snow.\'', 'a Dothraki word referring to the wife of the khal, or warlord of a khalasar, a Dothraki clan or tribe.',
-    'a massacre that takes place at the wedding that was intended to make peace between the Starks and the Freys'];
+let wordList = ["committee", "python" ];
+let hintList = ["a group of people appointed for a specific function, typically consisting of members of a larger group", 
+"a high-level general-purpose programming language; also the name of a snake" ]
 
 // Decide which index/word onload  --> we gonna need to make it happen after a game is done too somehow
 let wordIndex = Math.floor(Math.random() * wordList.length);
@@ -78,7 +77,7 @@ function guess(btn) {
             if (secretWord[i] == letter) {
                 blankWord[i] = letter;
                 counter += 1;
-                gameScore += counter;
+                gameScore += 1;
                 checkWonGame();
             }
             
