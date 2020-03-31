@@ -5,18 +5,18 @@ let gameScore = 0;
 
 // List of words and hints --> the hint and word have to be in same index
 // expand it to 10 words!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let wordList = ["committee", "python", "tea", "starbucks", "coronavirus", "ballet", "pneumonia","vaccine","immunocompromised","vancouver"];
+let wordList = ["committee", "python", "tea", "starbucks", "coronavirus", "ballet", "pneumonia", "vaccine", "immunocompromised", "vancouver"];
 
-let hintList = ["A group of people appointed for a specific function, typically consisting of members of a larger group.", 
-"A high-level general-purpose programming language; also the name of a snake.",
-"A hot drink made by infusing the dried crushed leaves of the tea plant in boiling water.",
-"An American coffee company and coffeehouse chain founded in Seattle, Washington, in 1971.",
-"Single-stranded RNA viruses that infect birds and many mammals including humans, and include the causative agents of MERS, SARS, and COVID-19.",
-"An artistic dance form performed to music using precise and highly formalized set steps and gestures.",
-"An infection that inflames the air sacs in one or both lungs.",
-"A substance used to stimulate the production of antibodies and provide immunity against one or several diseases.",
-"Having an impaired immune system.",
-"A coastal seaport city in western Canada, located in the Lower Mainland region of British Columbia."]
+let hintList = ["A group of people appointed for a specific function, typically consisting of members of a larger group.",
+    "A high-level general-purpose programming language; also the name of a snake.",
+    "A hot drink made by infusing the dried crushed leaves of the tea plant in boiling water.",
+    "An American coffee company and coffeehouse chain founded in Seattle, Washington, in 1971.",
+    "Single-stranded RNA viruses that infect birds and many mammals including humans, and include the causative agents of MERS, SARS, and COVID-19.",
+    "An artistic dance form performed to music using precise and highly formalized set steps and gestures.",
+    "An infection that inflames the air sacs in one or both lungs.",
+    "A substance used to stimulate the production of antibodies and provide immunity against one or several diseases.",
+    "Having an impaired immune system.",
+    "A coastal seaport city in western Canada, located in the Lower Mainland region of British Columbia."]
 
 // Decide which index/word onload  --> we gonna need to make it happen after a game is done too somehow
 let wordIndex = Math.floor(Math.random() * wordList.length);
@@ -44,22 +44,22 @@ function lifeReducer() {
     picChange();
     if (lives == 0) {
         let person = prompt("You Lost! Please enter your name", "Name");
-        alert(person+ " you lost. Game over, your score is "+ gameScore);
+        if (!alert(person + " you lost. Game over, your score is " + gameScore)) { window.location.reload(); }
     }
 }
 
 // change picture
-function picChange(){
+function picChange() {
     let image = document.getElementById('hangmanImg');
-    let imageList = ['src/pic0.png','src/pic1.png', 'src/pic2.png', 'src/pic3.png', 'src/pic4.png', 'src/pic5.png', 'src/pic6.png', 'src/pic7.png']
-    image.src = imageList[7-lives];
+    let imageList = ['src/pic0.png', 'src/pic1.png', 'src/pic2.png', 'src/pic3.png', 'src/pic4.png', 'src/pic5.png', 'src/pic6.png', 'src/pic7.png']
+    image.src = imageList[7 - lives];
 }
 
 function checkWonGame() {
     lettersLeft -= 1;
     if (lettersLeft == 0) {
         let person = prompt("You Won! Please enter your name", "Name");
-        alert(person + ', your score is '+ gameScore);
+        if (!alert(person + ', your score is ' + gameScore)) { window.location.reload(); }
     }
 }
 
@@ -83,20 +83,23 @@ function guess(btn) {
                 gameScore += counter;
                 showWord();
                 checkWonGame();
-                
+
             }
-            
+
         }
         if (counter == 0) {  // If no matches, reduce score by 1
             lifeReducer();
-            gameScore -= 1;
+            if (gameScore > 0) {
+                gameScore -= 1;
+            }
+
         }
     }
     showLive();
     showLetterLeft();
     console.log(guessList)
     showScore();
-    
+
 }
 
 
@@ -117,8 +120,8 @@ function createButtons() {
         // Add on click event to each button
         btn.addEventListener('click', guess);
         btn.addEventListener('click', function (btn) {
-                element = btn.target
-                element.className = 'btn active btn-md'
+            element = btn.target
+            element.className = 'btn active btn-md'
         })
         // Append it to the keyboard wrapper
         keyboard.appendChild(btn);
@@ -156,19 +159,19 @@ function showGuesses() {
 }
 
 // show score
-function showScore(){
+function showScore() {
     document.getElementById('score').innerHTML = 'Score Letters: ' + gameScore;
 }
 
 // end game
 let gameOverbtn = document.getElementById('endGame');
-gameOverbtn.addEventListener('click', function(e){
+gameOverbtn.addEventListener('click', function (e) {
     let person = prompt("Please enter your name", "Ariana Grande");
-        alert(person + ', your score is '+ gameScore);
+    alert(person + ', your score is ' + gameScore);
 })
 
 // reset game
 let resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', function(e){
+resetButton.addEventListener('click', function (e) {
     location.reload();
 })
