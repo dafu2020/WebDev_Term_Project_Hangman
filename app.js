@@ -1,5 +1,3 @@
-
-
 // JAVASCRIPT FILE //
 let lives = 7;
 let gameScore = 0;
@@ -29,11 +27,6 @@ let blankWord = [];
 for (i = 0; i < secretWord.length; i++) {
     blankWord[i] = "_"
 }
-
-console.log(secretWord);
-console.log(hint);
-console.log(blankWord);
-console.log(blankWord.join(" "));  // this is what should get written into the HTML 
 
 // Defining the keyboard wrapper
 const keyboard = document.getElementById('keyboard');
@@ -92,11 +85,9 @@ function guess(btn) {
             gameScore -= 1;
         }
     }
-    console.log(counter)
     showLive();
     showLetterLeft();
     showWord();
-    console.log(guessList)
     showScore();
 }
 
@@ -105,7 +96,6 @@ function createButtons() {
     // Create QWERTY array
     let qwerty = "qwertyuiopasdfghjklzxcvbnm".split('');
 
-    
     for (let i = 0; i < qwerty.length; i++) {
         if (i == 10 || i == 19) {
             let linebreak = document.createElement("br");
@@ -125,15 +115,8 @@ function createButtons() {
         // Append it to the keyboard wrapper
         keyboard.appendChild(btn);
     }
-
-
-
 }
 
-// document.getElementById("keyA").onclick = guess("a");  // how do u make this not happen automatically lol
-console.log(lives)
-console.log(secretWord)
-console.log(blankWord.join(" "))  // this is what should get written into the HTML 
 
 // show hint
 function showHint() {
