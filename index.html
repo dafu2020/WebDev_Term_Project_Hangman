@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   
 </head>
@@ -25,22 +26,10 @@
     </div>
   </div>
 </div>
-  
-<div class= "bg-3 Left space">
-  
-  <p id="wordDisplay" class="rainbow text-center text-uppercase">Word will display here</p>
 
-  <div class="hint">
-      <button id = "hintButton" onclick="showHint()"> HINT display</button>
-      <P id="hintText"></P>
-  </div>
-  <div class= "value">
-    <p id="live">Lives Remaining: </p>
-    <p id='letterLeft'>Letters Left: </p>
-    <p id="score">Score: 0</p>
-    <p id="guesses">Guessed Letters: </p>
-  </div>
-</div> 
+<p id="wordDisplay" class="rainbow text-center text-uppercase">Word will display here</p>
+ 
+
 <div class="bg-3 text-center">
 
     <div class="keyboard" id='keyboard'>
@@ -52,14 +41,33 @@
         <button id="endGame" type='button' class="btn-primary">END</button>
     </div>
 
-  <footer class="page-footer">
+</div>   
+
+
+
+<div class="card bg-3 text-center" style="width: 35rem; background-color: #666;">
+  <div class= "value">
+    
+    <p id="live">Lives Remaining: </p>
+    <p id='letterLeft'>Letters Left: </p>
+    <p id="score">Score: 0</p>
+    <p id="guesses">Guessed Letters: </p>
+  </div>
+  <div class="hint">
+    <button class="btn-warning" id = "hintButton" onclick="showHint()"> HINT display</button>
+    <P id="hintText"></P>
+</div>
+</div>
+
+<footer class="page-footer">
     <div class="container">
         <div class="row">
-            <div>
-                <h6 class="text-uppercase font-weight-bold">Group</h6>
+            <div class="footer-center">
+                <h6 class="text-uppercase font-weight-bold text-center">Group</h6>
                 <p>Hudson McManus, Arjun Dhaliwal, Cindy Lu</p>
             </div>
         </div>
+    </div>
 </footer>
 </body>
 <script type="text/javascript" src="app.js"></script>
