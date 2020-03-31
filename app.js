@@ -1,10 +1,16 @@
 // JAVASCRIPT FILE //
+
+// GLOBAL VARIABLES//
+
+// Scoring Variables
 let lives = 7;
 let gameScore = 0;
 
+// Defining the keyboard wrapper
+const keyboard = document.getElementById('keyboard');
+
 
 // List of words and hints --> the hint and word have to be in same index
-// expand it to 10 words!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 let wordList = ["committee", "python", "tea", "starbucks", "coronavirus", "ballet", "pneumonia", "vaccine", "immunocompromised", "vancouver"];
 
 let hintList = ["A group of people appointed for a specific function, typically consisting of members of a larger group.",
@@ -18,6 +24,7 @@ let hintList = ["A group of people appointed for a specific function, typically 
     "Having an impaired immune system.",
     "A coastal seaport city in western Canada, located in the Lower Mainland region of British Columbia."]
 
+
 // Decide which index/word onload  --> we gonna need to make it happen after a game is done too somehow
 let wordIndex = Math.floor(Math.random() * wordList.length);
 let secretWord = wordList[wordIndex]; // Select a random word from the wordList
@@ -26,17 +33,24 @@ let hint = hintList[wordIndex];
 let lettersLeft = secretWord.length;
 let guessList = [];
 
-// display _ for each letter of selected word
+
+// Display _ for each letter of selected word
 let blankWord = [];
 for (i = 0; i < secretWord.length; i++) {
     blankWord[i] = "_"
 }
 
-// Defining the keyboard wrapper
-const keyboard = document.getElementById('keyboard');
 
-// Creating buttons
-createButtons()
+// Function to start the game  on page load
+function startGame(blankWord, secretWord){
+    showWord();  // Display the hidden word
+    showLives();  // Display 7 lives
+    showLettersLeft();  // Display how many letters are left
+    createButtons();  // Generate the keyboard
+}
+
+
+document.onload = startGame();  // Prepare the game onload
 
 
 function lifeReducer() {
@@ -48,61 +62,66 @@ function lifeReducer() {
     }
 }
 
-// change picture
+
+// Change the image according to the user's remianing lives
 function picChange() {
     let image = document.getElementById('hangmanImg');
-    let imageList = ['src/pic0.png', 'src/pic1.png', 'src/pic2.png', 'src/pic3.png', 'src/pic4.png', 'src/pic5.png', 'src/pic6.png', 'src/pic7.png']
+    let imageList = ['src/pic0.png', 'src/pic1.png', 'src/pic2.png', 'src/pic3.png', 'src/pic4.png', 'src/pic5.png', 'src/pic6.png', 'src/pic7.png'];
     image.src = imageList[7 - lives];
 }
 
+
+// Check if the user won the game
 function checkWonGame() {
     lettersLeft -= 1;
     if (lettersLeft == 0) {
-        let person = prompt("You Won! Please enter your name", "Name");
-        if (!alert(person + ', your score is ' + gameScore)) { window.location.reload(); }
+        showWord();
+        setTimeout(function(){  // this timeout allows the word to appear before the Alert
+            let person = prompt("You Won! Please enter your name", "Name");
+            if (!alert(person + ', your score is ' + gameScore)) { window.location.reload(); }
+        }, 100)
     }
 }
 
+
+// Function that handles the user's letter guess
 function guess(btn) {
     element = btn.target;
     letter = element.innerHTML;
     counter = 0  // This is checking to see if there are any matches
 
+    // If the letter being guessed has already been guessed, inform the player
     if (guessList.includes(letter)) {
         alert("Already guessed.");
-
+    
     } else {
-        guessList.push(letter);
-        showGuesses();
+        guessList.push(letter); // Add the letter to the list of guessed letters
+        showGuesses(); // Show the user the new list of guessed letters
 
-        for (i = 0; i < secretWord.length; i++) {
-            if (secretWord[i] == letter) {
-                blankWord[i] = letter;
-                counter += 1;
+        for (i = 0; i < secretWord.length; i++) {  // Go through the secret word
+            if (secretWord[i] == letter) {  // If the letter matches a letter of the word
+                blankWord[i] = letter;  // Change the _ of the secret word to the guessed letter
+                counter += 1;  // Increcement number of guesses
 
                 gameScore += 1;
                 showWord();
                 checkWonGame();
-
             }
-
         }
-        if (counter == 0) {  // If no matches, reduce score by 1
-            lifeReducer();
+        if (counter == 0) {  // If no matches
+            lifeReducer();  // Reduce lives by 1
             if (gameScore > 0) {
                 gameScore -= 1;
             }
-
         }
     }
-    showLive();
-    showLetterLeft();
-    console.log(guessList)
+    showLives();  // Reveal lives left, letters left to guess, and the score
+    showLettersLeft(); 
     showScore();
-
 }
 
 
+// Creating Buttons (Dynamic Keyboard)
 function createButtons() {
     // Create QWERTY array
     let qwerty = "qwertyuiopasdfghjklzxcvbnm".split('');
@@ -132,48 +151,54 @@ function createButtons() {
 }
 
 
-// show hint
+// SIMPLE FUNCTIONS //
+
+// Reveal the hint for a word
 function showHint() {
     document.getElementById('hintText').innerHTML = hint;
 }
 
-// show word
+
+// Show the secret word (will start at _ _ _, but as letters are guessed, it will change)
 function showWord() {
     document.getElementById('wordDisplay').innerHTML = blankWord.join(" ");
 }
-showWord();
 
-// show live
-function showLive() {
+
+// Show lives remaining
+function showLives() {
     document.getElementById('live').innerHTML = 'Lives Remaining: ' + lives;
 }
-showLive();
 
-// show letter left
-function showLetterLeft() {
+
+// Show letter left in the secret word
+function showLettersLeft() {
     document.getElementById('letterLeft').innerHTML = 'Letters Remaining: ' + lettersLeft;
 }
-showLetterLeft();
 
-// show guesses
+
+// Show letters that have been guessed
 function showGuesses() {
     guessList.sort()
     document.getElementById('guesses').innerHTML = 'Guessed Letters: ' + guessList.join(" ");
 }
 
-// show score
+
+// Show the user's score
 function showScore() {
     document.getElementById('score').innerHTML = 'Score Letters: ' + gameScore;
 }
 
-// end game
+
+// End game
 let gameOverbtn = document.getElementById('endGame');
 gameOverbtn.addEventListener('click', function (e) {
     let person = prompt("Please enter your name", "Ariana Grande");
     alert(person + ', your score is ' + gameScore);
 })
 
-// reset game
+
+// Reset game
 let resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', function (e) {
     location.reload();
