@@ -43,7 +43,7 @@ function lifeReducer() {
     lives -= 1;
     picChange();
     if (lives == 0) {
-        let person = prompt("Please enter your name", "Ariana Grande");
+        let person = prompt("You Lost! Please enter your name", "Name");
         alert(person+ " you lost. Game over, your score is "+ gameScore);
     }
 }
@@ -58,7 +58,7 @@ function picChange(){
 function checkWonGame() {
     lettersLeft -= 1;
     if (lettersLeft == 0) {
-        let person = prompt("Please enter your name", "Ariana Grande");
+        let person = prompt("You Won! Please enter your name", "Name");
         alert(person + ', your score is '+ gameScore);
     }
 }
@@ -79,8 +79,11 @@ function guess(btn) {
             if (secretWord[i] == letter) {
                 blankWord[i] = letter;
                 counter += 1;
-                gameScore += 1;
+
+                gameScore += counter;
+                showWord();
                 checkWonGame();
+                
             }
             
         }
@@ -91,8 +94,9 @@ function guess(btn) {
     }
     showLive();
     showLetterLeft();
-    showWord();
+    console.log(guessList)
     showScore();
+    
 }
 
 
