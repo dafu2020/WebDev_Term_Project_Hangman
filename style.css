@@ -1,45 +1,49 @@
-.btn {
-    border: none;
-    outline: none;
-    background-color: #f1f1f1;
-    cursor: pointer;
-    font-size: 28px;
-    padding: 5;
-
-  }
-
-  .footer-center {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
-  }
-
-  .card {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
+.footer-center {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
 }
 
-  .active, .btn:hover {
-    background-color: #666;
-    color: white;
-  }
-
-  .page-footer {
-    background-color: #222;
-    color: #ccc;
-    padding: 60px 0 30px;
+.card-center {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 40rem;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgb(212, 232, 243);
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 }
+
+.active, .btn-lg:hover {
+  background-color: #666;
+  color: white;
+}
+
+.page-footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 60px 0 30px;
+}
+
 #reset {
   padding: 6px;
   margin: 5px;
-  
 }
 
 #endGame {
   padding: 6px;
   margin: 5px;
-  
 }
 
 p {
@@ -54,7 +58,6 @@ p {
 #wordDisplay {
   font-style: oblique;
   font-size: large;
-
 }
 
 .rainbow {
@@ -65,37 +68,36 @@ p {
 
 @keyframes rainbow {
   0% {
-      color: rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
   }
   10% {
-      color: rgb(255, 196, 0);
+    color: rgb(255, 196, 0);
   }
   20% {
-      color: rgb(94, 255, 0);
+    color: rgb(94, 255, 0);
   }
   30% {
-      color: rgb(0, 255, 191);
+    color: rgb(0, 255, 191);
   }
   40% {
-      color: rgb(0, 174, 255);
+    color: rgb(0, 174, 255);
   }
   50% {
-      color: rgb(17, 0, 255);
+    color: rgb(17, 0, 255);
   }
   60% {
-      color: rgb(132, 0, 255);
+    color: rgb(132, 0, 255);
   }
   70% {
-      color: rgb(225, 0, 255);
+    color: rgb(225, 0, 255);
   }
   80% {
-      color: rgb(255, 20, 177);
+    color: rgb(255, 20, 177);
   }
   90% {
-      color: rgb(255, 30, 30);
+    color: rgb(255, 30, 30);
   }
   100% {
-      color: rgb(0, 255, 21);
+    color: rgb(0, 255, 21);
   }
 }
-

@@ -116,12 +116,15 @@ function createButtons() {
         let btn = document.createElement("button")
         // Assign button's text to it's cooresponding letter
         btn.innerHTML = qwerty[i];
-        btn.className = 'btn btn-md';
+        btn.className = 'btn-lg';
+        
+        btn.style = 'border-radius: 6px';
+        btn.style.padding = '10px 16px';
         // Add on click event to each button
         btn.addEventListener('click', guess);
         btn.addEventListener('click', function (btn) {
             element = btn.target
-            element.className = 'btn active btn-md'
+            element.className = 'btn-lg active'
         })
         // Append it to the keyboard wrapper
         keyboard.appendChild(btn);
