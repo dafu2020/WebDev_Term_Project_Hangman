@@ -1,11 +1,24 @@
 .btn {
     border: none;
     outline: none;
-    padding: 20px 16px;
     background-color: #f1f1f1;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 28px;
+    padding: 5;
+
   }
+
+  .footer-center {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+  }
+
+  .card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
 
   .active, .btn:hover {
     background-color: #666;
@@ -30,7 +43,8 @@
 }
 
 p {
-  padding: 5px
+  padding: 5px;
+  font-size: large;
 }
 
 .space {
