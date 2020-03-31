@@ -7,12 +7,13 @@ let gameScore = 0;
 
 // List of words and hints --> the hint and word have to be in same index
 // expand it to 10 words!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let wordList = ["committee", "python", "tea", "starbucks", "coronavirus" ];
+let wordList = ["committee", "python", "tea", "starbucks", "coronavirus", "ballet" ];
 let hintList = ["A group of people appointed for a specific function, typically consisting of members of a larger group.", 
 "A high-level general-purpose programming language; also the name of a snake.",
 "A hot drink made by infusing the dried crushed leaves of the tea plant in boiling water.",
 "An American coffee company and coffeehouse chain founded in Seattle, Washington, in 1971.",
-"Single-stranded RNA viruses that infect birds and many mammals including humans, and include the causative agents of MERS, SARS, and COVID-19."
+"Single-stranded RNA viruses that infect birds and many mammals including humans, and include the causative agents of MERS, SARS, and COVID-19.",
+"an artistic dance form performed to music using precise and highly formalized set steps and gestures.",
 ]
 
 // Decide which index/word onload  --> we gonna need to make it happen after a game is done too somehow
