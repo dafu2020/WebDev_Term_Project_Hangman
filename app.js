@@ -80,7 +80,7 @@ function guess(btn) {
                 blankWord[i] = letter;
                 counter += 1;
 
-                gameScore += counter;
+                gameScore += 1;
                 showWord();
                 checkWonGame();
 
