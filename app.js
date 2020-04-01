@@ -55,12 +55,15 @@ function startGame(blankWord, secretWord){
 document.onload = startGame();  // Prepare the game onload
 
 
-function lifeReducer() {
+function lifeReducer() { // deduct lives when user pushed the wrong letter btn
     lives -= 1;
     picChange();
-    if (lives == 0) {
-        let person = prompt("You Lost! Please enter your name", "Name");
-        if (!alert(person + " you lost. Game over, your score is " + gameScore)) { window.location.reload(); }
+    if (lives == 0) {   // check if user's live is zero
+        setTimeout(function(){
+            let person = prompt("You Lost! Please enter your name", "Name");
+            if (!alert(person + " you lost. Game over, your score is " + gameScore)) { window.location.reload(); }
+        }, 300);
+       
     }
 }
 
