@@ -111,10 +111,8 @@ function guess(btn) {
             }
         }
         if (counter == 0) {  // If no matches
+            gameScore -=1; // reduce game score by 1
             lifeReducer();  // Reduce lives by 1
-            if (gameScore > 0) {
-                gameScore -= 1;
-            }
         }
     }
     showLives();  // Reveal lives left, letters left to guess, and the score
